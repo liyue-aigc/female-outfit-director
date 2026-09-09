@@ -6,7 +6,7 @@ description: >
   卡点变装、根据上传参考图延展视频，或希望先推荐穿搭/换装参数再生成时使用。
   支持从参考图提取人物、发型头饰、耳饰、服装和版式；支持部分参数输入与系统补全。
 metadata:
-  version: "1.3"
+  version: "1.4"
   language: zh-CN
   category: image-video-prompt-workflow
   compatibility: Skills-compatible agents; image understanding is preferred when a reference image is supplied.
@@ -46,6 +46,7 @@ metadata:
 当用户已有参考图、人物设定或足够服装信息：
 - 锁定已有参数
 - 仅补全低风险缺失项
+- 读取 `references/output-contract.md`
 - 直接输出图片提示词 + 视频脚本
 - 不重复询问已知信息
 
@@ -70,6 +71,13 @@ metadata:
 - 只替换换装触发与相应动作
 - 先读 `references/transition-library.md`
 - 用户要多个方案时提供 3–6 个
+
+## 参考文件路由
+
+- 生成完整图片提示词、视频时间轴或负面提示词前，读取 `references/output-contract.md`
+- 仅在用户要求参数推荐或主题方案时，读取 `references/parameter-presets.md`
+- 在选择、解释、替换或组合换装机制时，读取 `references/transition-library.md`
+- 不要为了普通直接生成任务一次性读取所有参考文件
 
 ## 参数锁定规则
 
@@ -332,32 +340,12 @@ metadata:
 
 ## 输出协议
 
-默认输出以下内容。
+完整生成任务必须读取并遵循 `references/output-contract.md`，依次交付：
 
-### 1）参数锁定结果
-只列本次真正使用的参数，不机械输出空字段。
+1. 参数锁定结果
+2. 首帧图片提示词
+3. 逐段视频时间轴
+4. 精简视频提示词
+5. 负面提示词 / 强制约束
 
-格式：
-```markdown
-## 参数锁定结果
-- 角色：
-- 成年年龄感：
-- 国籍 / 族裔外观：
-- 外貌锚点：
-- 发型 / 头饰 / 耳饰：
-- 初始主造型：
-- 造型1：
-- 造型2：
-- 造型3：
-- 造型4：
-- 拼贴布局：
-- 图片比例：
-- 视频比例：
-- 视频时长：
-- 镜头：
-- 动作基调：
-- 换装机制：
-- 换装卡点：
-- 声音：
-- 系统补全：
-```
+不得只输出其中一项。模式 B 的参数推荐和模式 D 的局部改造除外；这两种模式只输出当前阶段需要的内容。
