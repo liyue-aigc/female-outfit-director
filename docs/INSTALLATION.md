@@ -18,6 +18,7 @@ Copy-Item -Recurse -Force ".\female-outfit-director\skill\*" "$HOME\.codex\skill
 ```text
 %USERPROFILE%\.codex\skills\female-outfit-director\SKILL.md
 %USERPROFILE%\.codex\skills\female-outfit-director\agents\openai.yaml
+%USERPROFILE%\.codex\skills\female-outfit-director\references\output-contract.md
 %USERPROFILE%\.codex\skills\female-outfit-director\references\parameter-presets.md
 %USERPROFILE%\.codex\skills\female-outfit-director\references\transition-library.md
 ```

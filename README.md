@@ -10,6 +10,7 @@
 - 没有参考图且未指定国籍时，默认使用原创中国成年女性角色。
 - 生成同一角色的五套穿搭拼贴首帧提示词。
 - 输出逐段视频时间轴、精简视频提示词和负面约束。
+- 使用固定输出契约检查五项交付是否齐全、时间段是否连续、图片位置与视频触发方向是否对应。
 - 内置 12 种换装机制，覆盖人物贴图飞入、衣袖遮镜、旋身接力、贴纸翻页、动作卡点等方案。
 - 支持用户锁定时长、比例、镜头、服装、卡点时间、音乐和动作。
 
@@ -64,6 +65,9 @@ female-outfit-director/
 │  ├─ SKILL.md
 │  ├─ agents/openai.yaml
 │  └─ references/
+│     ├─ output-contract.md
+│     ├─ parameter-presets.md
+│     └─ transition-library.md
 ├─ docs/
 │  ├─ INSTALLATION.md
 │  └─ FIRST_USE.md
